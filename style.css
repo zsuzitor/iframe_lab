@@ -32,3 +32,10 @@ ul {
     vertical-align: top;
 }
 
+/*//------------------------------------------------------*/
+
+.iframe{
+	width:33%;
+	min-height: 400px;
+	border: 1px solid black;
+}
