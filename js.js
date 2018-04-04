@@ -1,20 +1,19 @@
 //document.documentElement.innerHTML
 
 //top.postMessage('close', '*');
+//
 
+//chromium-browser --disable-web-security --user-data-dir
+//chromium-browser --disable-web-security
+
+//
 function page_start(){
 	var icentre=document.getElementById("icentre_id");
 icentre.contentWindow.document.body.innerHTML="<div><input id='input_href' type='text'><button onclick=top.open_page(document.getElementById('input_href').value)>Открыть</button></div>";//top.open_page(document.getElementById('input_href').value)
-//icentre.contentWindow.document.head.innerHTML='<script>function load_page_(){top.postMessage("open_" +document.getElementById("input_href").value,"*");}</script>';// document.getElementById("input_href").value
-icentre.contentWindow.document.head.innerHTML='<script>function load_page(){open_page(document.getElementById("input_href").value);}</script>';
-// window.addEventListener("message", function(e) {
-//             if (e.data.indexOf('open')!=-1) {
-//                 //
 
-//             }
-//            },
-//           false);
-}
+
+
+
 
 document.addEventListener("DOMContentLoaded", page_start);
 
@@ -30,3 +29,60 @@ function open_page(scr){
 	//alert(scr);
 load_page(scr);
 }
+
+
+
+function left_frame_load(){
+	var fr=document.getElementById("ileft_id");
+//var html_=fr.contentWindow.document.innerHTML;
+var mass_img=fr.getElementsByTagName("img");
+
+var fr_centre=document.getElementById("icentre_id");
+var str="";
+for(var i=0;i<mass_img.length-1;++i){
+str+="<div class='one_img_block'>";
+str+="<img src='"+mass_img[i].src+"' onclick='load_img_right(this)'>";
+
+str+="</div>";
+}
+
+
+
+
+fr_centre.contentWindow.document.innerHTML=str;
+
+}
+
+function load_img_right(img){
+var fr_right=document.getElementById("iright");
+fr_right.contentWindow.document.innerHTML="<div class='main_img'><img src='"+img.src+"'></div>";
+
+
+}
+
+/*fr.script = fr.document.createElement('script');
+fr.script.type = 'text/javascript';
+fr.script.src = 'script.js';
+fr.document.head.appendChild(fr.script);
+*/
+
+
+////
+
+// window.addEventListener("message", function(e) {
+//             alert(e);
+//            },
+//           false);
+// }
+
+
+
+	//if(fr.contentWindow.document.innerHTML!=""&&)
+		//alert(fr.contentWindow.document.innerHTML);
+
+// if(fr.contentWindow!=undefined){//&&fr.contentWindow.document.innerHTML!=undefined
+// 	fr.script = fr.contentWindow.document.createElement('script');
+// fr.script.type = 'text/javascript';
+// fr.script.src = 'jsframe.js';
+// fr.contentWindow.document.head.appendChild(fr.script);
+// }
