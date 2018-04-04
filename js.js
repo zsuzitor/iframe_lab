@@ -12,6 +12,12 @@ function page_start(){
 icentre.contentWindow.document.body.innerHTML="<div><input id='input_href' type='text'><button onclick=top.open_page(document.getElementById('input_href').value)>Открыть</button></div>";//top.open_page(document.getElementById('input_href').value)
 
 
+}
+function centre_frame_load(){
+// 	var icentre=document.getElementById("icentre_id");
+// icentre.contentWindow.document.body.innerHTML="<div><input id='input_href' type='text'><button onclick=top.open_page(document.getElementById('input_href').value)>Открыть</button></div>";//top.open_page(document.getElementById('input_href').value)
+
+}
 
 
 
